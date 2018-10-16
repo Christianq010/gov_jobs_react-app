@@ -6,9 +6,8 @@ const BannerContentDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    .span {
-      color: black;
-      background-color: #6558;
+    .content {
+      color: #fff;
     }
 `;
 
@@ -17,7 +16,7 @@ class BannerContent extends React.Component {
   render() {
     return (
       <BannerContentDiv>
-        <div className="span"> {this.props.content} </div>
+        <div className="content"> {this.props.content} </div>
       </BannerContentDiv>
     );
   }
