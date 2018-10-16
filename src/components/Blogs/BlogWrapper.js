@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Router, Link } from "@reach/router";
 import Blog from "./Blog";
 
 const BlogWrapperDiv = styled.div`
@@ -9,14 +9,30 @@ const BlogWrapperDiv = styled.div`
     grid-row: 5 / 6;
     grid-column: 1 / -1;
     height: auto;
-    background-color: #6518;
+    padding: 1em;
+    .heading {
+      color: #DC2743;
+      font-size: 2em;
+      padding: 0.5em;
+    }
   }
   /* Desktops and laptops ----------- */
   @media only screen and (min-width: 1224px) {
     grid-row: 5 / 6;
     grid-column: 2 / 14;
     height: auto;
-    background-color: #6518;
+    margin: 3.5em 0;
+    .heading {
+      color: #DC2743;
+      font-size: 2.5em;
+    }
+  }
+  .linkTo {
+    padding: 1em;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row-reverse;
+    color: #DC2743;
   }
 `;
 
@@ -37,12 +53,13 @@ class BlogWrapper extends React.Component {
   render() {
     return (
       <BlogWrapperDiv>
-        <p>This is the blog wrapper</p>
+        <div className="heading">This is the blog wrapper</div>
         <Blogs>
             <Blog />
             <Blog />
             <Blog />
         </Blogs>
+        <Link to="/" class="linkTo">Go to resources &gt;</Link>
       </BlogWrapperDiv>
     );
   }
