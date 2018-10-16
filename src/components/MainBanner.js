@@ -9,14 +9,39 @@ const MainBannerDiv = styled.div`
     grid-row: 2 / 3;
     grid-column: 1 / -1;
     height: auto;
-    background-color: #6578;
+    background-color: #dc2743;
+    .headingContainer {
+      margin: 4em 1em;
+      .headingWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .heading {
+          color: #fff;
+          font-size: 2.5em;
+        }
+      }
+    }
   }
   /* Desktops and laptops ----------- */
   @media only screen and (min-width: 1224px) {
     grid-row: 2 / 3;
     grid-column: 1 / -1;
     height: auto;
-    background-color: #6578;
+    background-color: #dc2743;
+    .headingContainer {
+      margin: 6em 1em;
+      .headingWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .heading {
+          color: #fff;
+          font-size: 3em;
+        }
+      }
+    }
   }
 `;
 
@@ -24,8 +49,12 @@ class MainBanner extends React.Component {
   render() {
     return (
       <MainBannerDiv>
-        <span style={{ color: "black" }}>Main Banner</span>
-        <Search />
+        <div className="headingContainer">
+          <div className="headingWrapper">
+            <div className="heading">Find your G Suite credentials</div>
+          </div>
+          <Search />
+        </div>
       </MainBannerDiv>
     );
   }
