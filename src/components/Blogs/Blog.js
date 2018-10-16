@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
 
+import img from "./../../assets/bg.png"
+
 const BlogDiv = styled.div`
   /* Smartphones (portrait and landscape) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -15,7 +17,7 @@ const BlogDiv = styled.div`
   @media only screen and (min-width: 1224px) {
     display: flex;
     flex-direction: row;
-    border: 0.8px solid #b6b6b6;
+    border: 1px solid #b6b6b6;
     margin: 1em;
   }
   .blogbox {
@@ -34,7 +36,7 @@ const BlogDiv = styled.div`
         .headlineText {
           font-size: 1.05em;
           font-weight: 600;
-          margin: 0.3em 0;
+          margin: 0.7em 0;
           a {
             color: #000;
             text-decoration: none;
@@ -63,7 +65,7 @@ const BlogDiv = styled.div`
 
 class Blog extends React.Component {
   render() {
-    const imgURL = "https://via.placeholder.com/400x200";
+    const imgURL = img;
     return (
       <BlogDiv>
         <div className="blogbox">
