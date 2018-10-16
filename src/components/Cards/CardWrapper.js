@@ -9,14 +9,12 @@ const CardWrapperDiv = styled.div`
     grid-row: 3 / 4;
     grid-column: 1 / -1;
     height: auto;
-    background-color: #6518;
   }
   /* Desktops and laptops ----------- */
   @media only screen and (min-width: 1224px) {
     grid-row: 3 / 4;
     grid-column: 2 / 14;
     height: auto;
-    background-color: #6518;
   }
 `;
 
