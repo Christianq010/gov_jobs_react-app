@@ -14,7 +14,7 @@ const NavbarDiv = styled.div`
     height: auto;
     .navWrapper {
       display: grid;
-      grid-template-columns: 3fr 1fr 3fr;
+      grid-template-columns: 3fr 9fr;
       height: 95px;
       grid-gap: 3px;
     }
@@ -26,7 +26,7 @@ const NavbarDiv = styled.div`
     height: auto;
     .navWrapper {
       display: grid;
-      grid-template-columns: 3fr 8fr 3fr;
+      grid-template-columns: 3fr 9fr;
       height: 95px;
       grid-gap: 3px;
     }
@@ -38,7 +38,7 @@ class Navbar extends React.Component {
     return (
       <NavbarDiv>
         <div className="navWrapper">
-          <Items />
+          {/* <Items /> */}
           <Logo />
           <Menu />
         </div>
