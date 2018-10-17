@@ -2,11 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 
-// import SCSS
-// import Styling from "./scss/main.scss";
-
+// Routes
 import Homepage from "./Views/Homepage";
-import Search from "./Views/Search";
+import ResultsPage from "./Views/ResultsPage";
+import ResultPage from "./Views/ResultPage";
 
 class App extends React.Component {
   state = {
@@ -17,7 +16,8 @@ class App extends React.Component {
       <div>
         <Router>
           <Homepage path="/" />
-          <Search path="/search" />
+          <ResultsPage path="/results" />
+          <ResultPage path="/result" />
         </Router>
       </div>
     );
