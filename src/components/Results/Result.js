@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
 
-const CardDiv = styled.div`
+const ResultDiv = styled.div`
   /* Smartphones (portrait and landscape) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     grid-row: 3 / 4;
@@ -10,12 +10,12 @@ const CardDiv = styled.div`
     height: auto;
     border: 0.8px solid #b6b6b6;
     margin: 1em;
-    .cardbox {
+    .Resultbox {
       display: flex;
       flex-direction: column-reverse;
       padding: 2em;
     }
-    .cardDetails {
+    .ResultDetails {
       text-align: center;
       .headlineText {
         font-size: 1em;
@@ -38,11 +38,11 @@ const CardDiv = styled.div`
         color: #dc2743;
       }
     }
-    .cardimgwrapper {
+    .Resultimgwrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      .cardimg {
+      .Resultimg {
         height: 115px;
         img {
           height: 100%;
@@ -76,11 +76,13 @@ const CardDiv = styled.div`
     flex-direction: row;
     border: 0.8px solid #b6b6b6;
     margin: 1em;
-    .cardbox {
+    .Resultbox {
       display: flex;
+      align-content: center;
       padding: 2.5em;
     }
-    .cardDetails {
+    .ResultDetails {
+        margin: 0 0 0 5em;
       .headlineText {
         font-size: 1em;
         font-weight: 500;
@@ -102,12 +104,12 @@ const CardDiv = styled.div`
         color: #dc2743;
       }
     }
-    .cardimgwrapper {
+    .Resultimgwrapper {
       display: flex;
       align-items: center;
-      padding-left: 4em;
-      .cardimg {
-        height: 115px;
+      /* padding-left: 4em; */
+      .Resultimg {
+        height: 175px;
         img {
           height: 100%;
           border-radius: 50%;
@@ -136,14 +138,19 @@ const CardDiv = styled.div`
   }
 `;
 
-class Card extends React.Component {
+class Result extends React.Component {
   render() {
     const ImgURL =
       "https://camo.githubusercontent.com/2d6da67c4cab809c1a23cce31f1c53c0daa06d0a/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f676f6f676c652d6d6565742e737667";
     return (
-      <CardDiv>
-        <div className="cardbox">
-          <div className="cardDetails">
+      <ResultDiv>
+        <div className="Resultbox">
+          <div className="Resultimgwrapper">
+            <div className="Resultimg">
+              <img src={ImgURL} alt="some title" />
+            </div>
+          </div>
+          <div className="ResultDetails">
             <div className="headlineText">
               <Link to="/result">Headline Text - This is some random text</Link>
             </div>
@@ -157,15 +164,10 @@ class Card extends React.Component {
               <button className="viewBtn">View</button>
             </div>
           </div>
-          <div className="cardimgwrapper">
-            <div className="cardimg">
-              <img src={ImgURL} alt="some title" />
-            </div>
-          </div>
         </div>
-      </CardDiv>
+      </ResultDiv>
     );
   }
 }
 
-export default Card;
+export default Result;
