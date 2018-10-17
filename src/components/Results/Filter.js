@@ -3,6 +3,12 @@ import React from "react";
 import styled from "styled-components";
 
 const FilterDiv = styled.div`
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .headingWrapper {
+      margin: 0.5em 0;
+    }
+  }
   .FilterBox {
     border: 1px solid #b6b6b6;
     padding: 1em 2em;

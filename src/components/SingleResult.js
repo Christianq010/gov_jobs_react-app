@@ -16,7 +16,7 @@ const CardDiv = styled.div`
     .cardDetails {
       text-align: center;
       .headlineText {
-        font-size: 1em;
+        font-size: 1.5em;
         font-weight: 500;
         margin: 0.3em 0;
         a {
@@ -25,11 +25,11 @@ const CardDiv = styled.div`
         }
       }
       .headlineSub {
-        font-size: 0.8em;
+        font-size: 1em;
         font-weight: 400;
       }
       .headlineDes {
-        font-size: 1em;
+        font-size: 1.2em;
         margin: 1em 0;
       }
       .textRemain {

@@ -12,7 +12,7 @@ const ResultDiv = styled.div`
     margin: 1em;
     .Resultbox {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       padding: 2em;
     }
     .ResultDetails {
