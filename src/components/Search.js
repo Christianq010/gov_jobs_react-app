@@ -95,7 +95,7 @@ class Search extends React.Component {
             />
           </div>
           <div className="submitWrapper">
-            <input className="submitBtn" type="submit" value="Submit" />
+            <input className="submitBtn" type="submit" value="Search" />
           </div>
         </form>
       </SearchDiv>
