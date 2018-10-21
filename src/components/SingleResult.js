@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import Card from "./Cards/Card";
 
-const CardDiv = styled.div`
+const SingleResultDiv = styled.div`
   /* Smartphones (portrait and landscape) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     grid-row: 3 / 4;
@@ -136,12 +137,34 @@ const CardDiv = styled.div`
   }
 `;
 
-class Card extends React.Component {
+const Cards = styled.div`
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Desktops and laptops ----------- */
+  @media only screen and (min-width: 1224px) {
+    grid-row: 4 / 5;
+    grid-column: 3 / 13;
+  }
+`;
+
+const hello = styled.div`
+  /* Desktops and laptops ----------- */
+  @media only screen and (min-width: 1224px) {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+  }
+`;
+
+
+class SingleResult extends React.Component {
   render() {
     const ImgURL =
       "https://camo.githubusercontent.com/2d6da67c4cab809c1a23cce31f1c53c0daa06d0a/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f676f6f676c652d6d6565742e737667";
     return (
-      <CardDiv>
+      <SingleResultDiv>
         <div className="cardbox">
           <div className="cardDetails">
             <div className="headlineText">
@@ -167,9 +190,15 @@ class Card extends React.Component {
             </div>
           </div>
         </div>
-      </CardDiv>
+        <Cards>
+          <hello>
+            <Card />
+            <Card />
+          </hello>
+        </Cards>
+      </SingleResultDiv>
     );
   }
 }
 
-export default Card;
+export default SingleResult;
