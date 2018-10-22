@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Card from "./Cards/Card";
 
 const SingleResultDiv = styled.div`
   /* Smartphones (portrait and landscape) ----------- */
@@ -137,28 +136,6 @@ const SingleResultDiv = styled.div`
   }
 `;
 
-const Cards = styled.div`
-    /* Smartphones (portrait and landscape) ----------- */
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    display: flex;
-    flex-direction: column;
-  }
-  /* Desktops and laptops ----------- */
-  @media only screen and (min-width: 1224px) {
-    grid-row: 4 / 5;
-    grid-column: 3 / 13;
-  }
-`;
-
-const hello = styled.div`
-  /* Desktops and laptops ----------- */
-  @media only screen and (min-width: 1224px) {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-  }
-`;
-
-
 class SingleResult extends React.Component {
   render() {
     const ImgURL =
@@ -190,12 +167,6 @@ class SingleResult extends React.Component {
             </div>
           </div>
         </div>
-        <Cards>
-          <hello>
-            <Card />
-            <Card />
-          </hello>
-        </Cards>
       </SingleResultDiv>
     );
   }
