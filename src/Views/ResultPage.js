@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar/Navbar";
 import SmallBanner from "../components/SmallBanner";
 import SingleResult from "../components/SingleResult";
+import CardWrapperSmall from "../components/Cards/CardWrapperSmall";
 import Footer from "../components/Footer";
 
 const ResultsPageDiv = styled.div`
@@ -31,6 +32,7 @@ class ResultsPage extends React.Component {
         <Navbar />
         <SmallBanner />
         <SingleResult />
+        <CardWrapperSmall />
         <Footer />
       </ResultsPageDiv>
     );
