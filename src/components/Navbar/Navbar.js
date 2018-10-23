@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Items from "./Items";
 import Logo from "./Logo";
-import Menu from "./Menu";
+// import Menu from "./Menu";
 
 const NavbarDiv = styled.div`
   background-color: #fff;
@@ -22,7 +22,7 @@ const NavbarDiv = styled.div`
   /* Desktops and laptops ----------- */
   @media only screen and (min-width: 1224px) {
     grid-row: 1 / 2;
-    grid-column: 1 / -1;
+    grid-column: 2 / 14;
     height: auto;
     .navWrapper {
       display: grid;
@@ -38,9 +38,9 @@ class Navbar extends React.Component {
     return (
       <NavbarDiv>
         <div className="navWrapper">
-          {/* <Items /> */}
+          {/* <Menu /> */}
           <Logo />
-          <Menu />
+          <Items />
         </div>
       </NavbarDiv>
     );

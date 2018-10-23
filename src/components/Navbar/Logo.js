@@ -10,7 +10,7 @@ const LogoDiv = styled.div`
       padding: 0 1em;
   }
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   img {
     height: auto;
