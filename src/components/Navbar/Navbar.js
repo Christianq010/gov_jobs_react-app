@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import Items from "./Items";
 import Logo from "./Logo";
-// import Menu from "./Menu";
 
 const NavbarDiv = styled.div`
   background-color: #fff;
@@ -38,7 +37,6 @@ class Navbar extends React.Component {
     return (
       <NavbarDiv>
         <div className="navWrapper">
-          {/* <Menu /> */}
           <Logo />
           <Items />
         </div>
