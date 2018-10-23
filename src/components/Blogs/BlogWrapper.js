@@ -59,7 +59,7 @@ class BlogWrapper extends React.Component {
             <Blog />
             <Blog />
         </Blogs>
-        <Link to="/results" class="linkTo">Go to resources &gt;</Link>
+        <Link to="/results" className="linkTo">Go to resources &gt;</Link>
       </BlogWrapperDiv>
     );
   }
