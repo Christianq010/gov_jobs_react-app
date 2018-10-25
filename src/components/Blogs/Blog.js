@@ -81,14 +81,14 @@ class Blog extends React.Component {
             {/* Text Wrapper */}
             <div className="textwrapper">
               <div className="headlineText">
-                <Link to="/">Headline Text - This is some random text</Link>
+                <Link to="/blogpage">Headline Text - This is some random text</Link>
               </div>
               <div className="headlineSub">A small description</div>
             </div>
             {/* /end of Text Wrapper */}
             {/* Buttons */}
             <div className="buttonRow">
-              <Link className="viewBtn" to="/">
+              <Link className="viewBtn" to="/blogpage">
                 View
               </Link>
             </div>

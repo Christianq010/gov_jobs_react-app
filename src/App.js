@@ -6,6 +6,7 @@ import { Router } from "@reach/router";
 import Homepage from "./Views/Homepage";
 import ResultsPage from "./Views/ResultsPage";
 import ResultPage from "./Views/ResultPage";
+import BlogPage from "./Views/BlogPage";
 
 class App extends React.Component {
   state = {
@@ -18,6 +19,7 @@ class App extends React.Component {
           <Homepage path="/" />
           <ResultsPage path="/results" />
           <ResultPage path="/result" />
+          <BlogPage path="/blogpage" />
         </Router>
       </div>
     );
