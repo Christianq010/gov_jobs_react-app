@@ -42,6 +42,7 @@ Parcel is an ever evolving project that's just getting better. If you run into p
 - Directory structure example - https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1
 
 - React Burger icon - https://github.com/negomi/react-burger-menu
+- Burger Menu component tutorial - https://codepen.io/danbuda/post/a-react-navbar-component
 
 ### Troubleshoot
 
