@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "axios": "^0.18.0",
     "node-sass": "^4.9.3",
     "react": "^16.5.2",
     "react-burger-menu": "^2.5.4",
