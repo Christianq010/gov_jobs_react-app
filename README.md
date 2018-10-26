@@ -61,3 +61,9 @@ https://www.storyblok.com/docs/Prologue/Introduction
 `https://api.storyblok.com/v1/cdn/stories?token=lClgQFxlCzg1pp3obj6aUQtt&cv=1540525479`
 
 - Take JSON data response and turn into structured format to read easier [here](https://jsoneditoronline.org/). 
+
+- Refrence for using axios to get response of data from our API [here](https://hackernoon.com/tutorial-how-to-make-http-requests-in-react-part-3-daa6b31b66be)
+
+- Reference to check our data array and add it to state here [here](https://btholt.github.io/complete-intro-to-react-v4/react-state-and-lifecycles)
+
+
