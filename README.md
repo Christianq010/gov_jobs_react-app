@@ -49,3 +49,15 @@ Parcel is an ever evolving project that's just getting better. If you run into p
 - Git Detached HEAD issue _[Solved]_ - https://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin
 
 - babel config issue _[Solved]_ - https://github.com/babel/babel/issues/5006
+
+
+### Integration with a headless CMS
+> Using StoryBlok to create content and the API 
+https://www.storyblok.com/docs/Prologue/Introduction
+
+- Use the API docs - https://www.storyblok.com/docs/Delivery-Api/get-a-story
+
+- Use Postman to send a get request with the token provided on storyblok dashboard 
+`https://api.storyblok.com/v1/cdn/stories?token=lClgQFxlCzg1pp3obj6aUQtt&cv=1540525479`
+
+- Take JSON data response and turn into structured format to read easier [here](https://jsoneditoronline.org/). 
