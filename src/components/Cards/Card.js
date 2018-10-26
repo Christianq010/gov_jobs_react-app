@@ -105,7 +105,7 @@ const CardDiv = styled.div`
     .cardimgwrapper {
       display: flex;
       align-items: center;
-      padding-left: 4em;
+      padding-left: 2em;
       .cardimg {
         height: 115px;
         img {
@@ -138,20 +138,19 @@ const CardDiv = styled.div`
 
 class Card extends React.Component {
   render() {
-    const ImgURL =
-      "https://camo.githubusercontent.com/2d6da67c4cab809c1a23cce31f1c53c0daa06d0a/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f676f6f676c652d6d6565742e737667";
     return (
       <CardDiv>
         <div className="cardbox">
           <div className="cardDetails">
             <div className="headlineText">
-              <Link to="/result">Headline Text - This is some random text</Link>
+              <Link to="/result"> {this.props.title} </Link>
             </div>
             <div className="headlineSub">Colombo, Sri Lanka</div>
-            <div className="headlineDes">
-              ට්‍රාන්ස්ලේටර්, ට්‍රාන්ස්ලේටර් ඊස්ටන් විශ්වවිද්‍යාලය
+            <div className="headlineDes">{this.props.description}</div>
+            <div className="textRemain">
+              {" "}
+              Deadline date: {this.props.deadline}
             </div>
-            <div className="textRemain">2 Days remaining</div>
             <div className="buttonRow">
               <button className="downloadBtn">Download</button>
               <button className="viewBtn">View</button>
@@ -159,7 +158,7 @@ class Card extends React.Component {
           </div>
           <div className="cardimgwrapper">
             <div className="cardimg">
-              <img src={ImgURL} alt="some title" />
+              <img src={this.props.img} alt="some title" />
             </div>
           </div>
         </div>

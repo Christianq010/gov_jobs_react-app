@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import axios from 'axios'
+import axios from "axios";
 import Card from "./Card";
 
 const API =
-  "https://api.storyblok.com/v1/cdn/stories?token=lClgQFxlCzg1pp3obj6aUQtt&cv=1540525479";
+  "https://api.storyblok.com/v1/cdn/stories?token=rHFBeu95Upg1QYUDypHgYQtt";
 
 const CardWrapperDiv = styled.div`
   /* Smartphones (portrait and landscape) ----------- */
@@ -36,26 +36,50 @@ const Cards = styled.div`
 `;
 
 class CardWrapper extends React.Component {
-  constructor () {
-    super()
+  constructor(props) {
+    super(props);
     this.state = {
-      stories: [],
-    }
+      stories: []
+    };
   }
   componentDidMount() {
-    axios.get(API)
+    axios
+      .get(API)
       // .then(response => console.log(response))
-      .then(data => {this.setState({ stories: data.data.stories})});
+      // get our stories array, check it and then change state to contain our stories
+      .then(data => {
+        let stories;
+        if (data.data.stories && data.data.stories) {
+          if (Array.isArray(data.data.stories)) {
+            stories = data.data.stories;
+          } else {
+            stories = [data.data.stories];
+          }
+        } else {
+          stories = [];
+        }
+        this.setState({
+          stories: stories
+        });
+      });
   }
 
   render() {
     return (
       <CardWrapperDiv>
         <Cards>
-          <Card />
-          <pre>
-            <code>{JSON.stringify(this.state, null, 2)}</code>
-          </pre>
+          {this.state.stories.map(story => {
+            return (
+              <Card
+                title={story.content.title}
+                img={story.content.img}
+                description={story.content.description}
+                deadline={story.content.deadline_date}
+                tags={story.content.tags}
+                key={story.id}
+              />
+            );
+          })}
         </Cards>
       </CardWrapperDiv>
     );
