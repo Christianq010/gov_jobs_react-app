@@ -77,6 +77,7 @@ class CardWrapper extends React.Component {
                 deadline={story.content.deadline_date}
                 tags={story.content.tags}
                 key={story.id}
+                id={story.id}
               />
             );
           })}

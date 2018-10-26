@@ -18,7 +18,7 @@ class App extends React.Component {
         <Router>
           <Homepage path="/" />
           <ResultsPage path="/results" />
-          <ResultPage path="/result" />
+          <ResultPage path="/result/:id" />
           <BlogPage path="/blogpage" />
         </Router>
       </div>

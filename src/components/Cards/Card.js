@@ -143,7 +143,7 @@ class Card extends React.Component {
         <div className="cardbox">
           <div className="cardDetails">
             <div className="headlineText">
-              <Link to="/result"> {this.props.title} </Link>
+              <Link to={`/result/${this.props.id}`}> {this.props.title} </Link>
             </div>
             <div className="headlineSub">Colombo, Sri Lanka</div>
             <div className="headlineDes">{this.props.description}</div>
