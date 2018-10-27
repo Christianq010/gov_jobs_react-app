@@ -52,6 +52,14 @@ Parcel is an ever evolving project that's just getting better. If you run into p
 
 
 ### Integration with a headless CMS
+
+* Handy code for printing out state in a JSON response to the DOM 
+```jsx
+<pre>
+    <code>{JSON.stringify(this.state, null, 2)}</code>
+</pre>
+```
+
 > Using StoryBlok to create content and the API 
 https://www.storyblok.com/docs/Prologue/Introduction
 
