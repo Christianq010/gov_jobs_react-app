@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+import axios from "axios";
+
+const API = `https://api.storyblok.com/v1/cdn/stories/367857?token=rHFBeu95Upg1QYUDypHgYQtt`;
+
 const SingleResultDiv = styled.div`
   /* Smartphones (portrait and landscape) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -137,25 +141,67 @@ const SingleResultDiv = styled.div`
 `;
 
 class SingleResult extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // story: [],
+      loading: true,
+    };
+  }
+  componentDidMount() {
+    axios
+      .get(API)
+      // .get(`https://api.storyblok.com/v1/cdn/stories/${this.props.id}?token=rHFBeu95Upg1QYUDypHgYQtt`)
+      // .then(response => console.log(response))
+      // get our stories array, check it and then change state to contain our stories
+      .then(data => {
+        let story;
+        if (data.data.stories && data.data.stories) {
+          if (Array.isArray(data.data.stories)) {
+            story = data.data.stories;
+          } else {
+            story = [data.data.stories];
+          }
+        } else {
+          story = [];
+        }
+        // console.log(data.data.story);
+        this.setState({
+          // story: data.data.story,
+          name: data.data.story.content.title,
+          title: data.data.story.content.title,
+          description: data.data.story.content.description,
+          deadline: data.data.story.content.deadline_date,
+          img: data.data.story.content.img,
+          link: data.data.story.content.link.url,
+          body: data.data.story.content.body,
+          id: data.data.story.id,
+          loading: false
+        });
+      })
+      .catch(err => this.setState({ error: err }));
+  }
   render() {
-    const ImgURL =
-      "https://camo.githubusercontent.com/2d6da67c4cab809c1a23cce31f1c53c0daa06d0a/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f676f6f676c652d6d6565742e737667";
+    if (this.state.loading) {
+      return <h1>Data is loading ... </h1>;
+    }
     return (
       <SingleResultDiv>
         <div className="cardbox">
           <div className="cardDetails">
             <div className="headlineText">
-              <div>Headline Text - This is some random text</div>
+              <div>{this.state.name}</div>
             </div>
             <div className="headlineSub">Colombo, Sri Lanka</div>
-            <div className="headlineDes">
-              ට්‍රාන්ස්ලේටර්, ට්‍රාන්ස්ලේටර් ඊස්ටන් විශ්වවිද්‍යාලය
-            </div>
+            <div className="headlineDes">{this.state.description}</div>
             <div className="bodyText">
-              <p>Lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui.Lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui.</p>
-              <p>Lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui.Lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui.Lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui.</p>
+              <p>{this.state.body}</p>
             </div>
-            <div className="textRemain">Disclaimer - Lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui.</div>
+            <div className="textRemain">
+              Disclaimer - Lorem ipsum valor estudi karnasr iop kuraeti vaesti
+              mo oui lorem ipsum valor estudi karnasr iop kuraeti vaesti mo oui.
+            </div>
+            <div className="textRemain">{this.state.deadline}</div>
             <div className="buttonRow">
               <button className="downloadBtn">Download</button>
               <button className="viewBtn">View</button>
@@ -163,7 +209,7 @@ class SingleResult extends React.Component {
           </div>
           <div className="cardimgwrapper">
             <div className="cardimg">
-              <img src={ImgURL} alt="some title" />
+              <img src={this.state.img} alt="some title" />
             </div>
           </div>
         </div>
