@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import axios from "axios";
 
-const API = `https://api.storyblok.com/v1/cdn/stories/367857?token=rHFBeu95Upg1QYUDypHgYQtt`;
+// const API = `https://api.storyblok.com/v1/cdn/stories/367857?token=rHFBeu95Upg1QYUDypHgYQtt`;
 
 const SingleResultDiv = styled.div`
   /* Smartphones (portrait and landscape) ----------- */
@@ -150,10 +150,11 @@ class SingleResult extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(API)
-      // .get(`https://api.storyblok.com/v1/cdn/stories/${this.props.id}?token=rHFBeu95Upg1QYUDypHgYQtt`)
+      // .get(API)
+      // id passed from route to request data from story 
+      .get(`https://api.storyblok.com/v1/cdn/stories/${this.props.id}?token=rHFBeu95Upg1QYUDypHgYQtt`)
       // .then(response => console.log(response))
-      // get our stories array, check it and then change state to contain our stories
+      // get our story array, check it and then change state to data we want from story
       .then(data => {
         let story;
         if (data.data.stories && data.data.stories) {

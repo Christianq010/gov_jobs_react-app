@@ -31,7 +31,7 @@ class ResultsPage extends React.Component {
       <ResultsPageDiv>
         <Navbar />
         <SmallBanner />
-        <SingleResult />
+        <SingleResult id={this.props.id} />
         <CardWrapperSmall />
         <Footer />
       </ResultsPageDiv>
