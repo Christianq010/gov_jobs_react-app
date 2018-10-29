@@ -87,7 +87,7 @@ class FilterWrapper extends React.Component {
             <Filter />
             <Results />
         </ResultsDiv>
-        <Link to="/" class="linkTo">
+        <Link to="/" className="linkTo">
           More results &gt;
         </Link>
       </FilterWrapperDiv>
