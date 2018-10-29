@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import axios from "axios";
 import Card from "./Card";
-
+import PulseLoader from "react-spinners/PulseLoader";
 const API =
   "https://api.storyblok.com/v1/cdn/stories?token=rHFBeu95Upg1QYUDypHgYQtt";
 
@@ -35,11 +35,20 @@ const Cards = styled.div`
   }
 `;
 
+const Loading = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5em;
+`;
+
 class CardWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stories: []
+      stories: [],
+      loading: true
     };
   }
   componentDidMount() {
@@ -59,12 +68,27 @@ class CardWrapper extends React.Component {
           stories = [];
         }
         this.setState({
-          stories: stories
+          stories: stories,
+          loading: false
         });
       });
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <CardWrapperDiv>
+          <Loading>
+            <PulseLoader
+              sizeUnit={"px"}
+              size={50}
+              color={"#dc2743"}
+              loading={this.state.loading}
+            />
+          </Loading>
+        </CardWrapperDiv>
+      );
+    }
     return (
       <CardWrapperDiv>
         <Cards>

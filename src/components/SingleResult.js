@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import axios from "axios";
-
+import PulseLoader from "react-spinners/PulseLoader";
 // const API = `https://api.storyblok.com/v1/cdn/stories/367857?token=rHFBeu95Upg1QYUDypHgYQtt`;
 
 const SingleResultDiv = styled.div`
@@ -140,19 +140,31 @@ const SingleResultDiv = styled.div`
   }
 `;
 
+const Loading = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5em;
+`;
+
 class SingleResult extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       // story: [],
-      loading: true,
+      loading: true
     };
   }
   componentDidMount() {
     axios
       // .get(API)
-      // id passed from route to request data from story 
-      .get(`https://api.storyblok.com/v1/cdn/stories/${this.props.id}?token=rHFBeu95Upg1QYUDypHgYQtt`)
+      // id passed from route to request data from story
+      .get(
+        `https://api.storyblok.com/v1/cdn/stories/${
+          this.props.id
+        }?token=rHFBeu95Upg1QYUDypHgYQtt`
+      )
       // .then(response => console.log(response))
       // get our story array, check it and then change state to data we want from story
       .then(data => {
@@ -184,7 +196,18 @@ class SingleResult extends React.Component {
   }
   render() {
     if (this.state.loading) {
-      return <h1>Data is loading ... </h1>;
+      return (
+        <SingleResultDiv>
+          <Loading>
+            <PulseLoader
+              sizeUnit={"px"}
+              size={50}
+              color={"#dc2743"}
+              loading={this.state.loading}
+            />
+          </Loading>
+        </SingleResultDiv>
+      );
     }
     return (
       <SingleResultDiv>
