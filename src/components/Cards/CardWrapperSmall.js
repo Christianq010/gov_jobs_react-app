@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import axios from "axios";
 import Card from "./Card";
+
+const API =
+  "https://api.storyblok.com/v1/cdn/stories?token=rHFBeu95Upg1QYUDypHgYQtt";
 
 const CardWrapperDiv = styled.div`
   .headingWrapper {
@@ -46,6 +50,33 @@ const Cards = styled.div`
 `;
 
 class CardWrapper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stories: []
+    };
+  }
+  componentDidMount() {
+    axios
+      .get(API)
+      // .then(response => console.log(response))
+      // get our stories array, check it and then change state to contain our stories
+      .then(data => {
+        let stories;
+        if (data.data.stories && data.data.stories) {
+          if (Array.isArray(data.data.stories)) {
+            stories = data.data.stories;
+          } else {
+            stories = [data.data.stories];
+          }
+        } else {
+          stories = [];
+        }
+        this.setState({
+          stories: stories
+        });
+      });
+  }
   render() {
     return (
       <CardWrapperDiv>
@@ -53,10 +84,19 @@ class CardWrapper extends React.Component {
           <div className="heading"> Suggested for you</div>
         </div>
         <Cards>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {this.state.stories.map(story => {
+            return (
+              <Card
+                title={story.content.title}
+                img={story.content.img}
+                description={story.content.description}
+                deadline={story.content.deadline_date}
+                tags={story.content.tags}
+                key={story.id}
+                id={story.id}
+              />
+            );
+          })}
         </Cards>
       </CardWrapperDiv>
     );
