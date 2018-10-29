@@ -36,11 +36,11 @@ const Cards = styled.div`
 `;
 
 const Loading = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5em;
 `;
 
 class CardWrapper extends React.Component {
@@ -54,9 +54,9 @@ class CardWrapper extends React.Component {
   componentDidMount() {
     axios
       .get(API)
-      // .then(response => console.log(response))
       // get our stories array, check it and then change state to contain our stories
       .then(data => {
+        // console.log(data);
         let stories;
         if (data.data.stories && data.data.stories) {
           if (Array.isArray(data.data.stories)) {
@@ -71,7 +71,9 @@ class CardWrapper extends React.Component {
           stories: stories,
           loading: false
         });
-      });
+      })
+      // .catch(err => {console.log(err)});
+      .catch(err => this.setState({ error: err }));
   }
 
   render() {
