@@ -137,13 +137,16 @@ const CardDiv = styled.div`
 `;
 
 class Card extends React.Component {
+  handleButtonClick() {
+    this.forceUpdate();
+  }
   render() {
     return (
       <CardDiv>
         <div className="cardbox">
           <div className="cardDetails">
             <div className="headlineText">
-              <Link to={`/result/${this.props.id}`}> {this.props.title} </Link>
+              <Link to={`/result/${this.props.id}`} onClick={this.handleButtonClick}> {this.props.title} </Link>
             </div>
             <div className="headlineSub">Colombo, Sri Lanka</div>
             <div className="headlineDes">{this.props.description}</div>
