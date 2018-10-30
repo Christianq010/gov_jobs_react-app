@@ -136,9 +136,21 @@ const CardDiv = styled.div`
   }
 `;
 
-class Card extends React.Component {
+class Card extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      id: this.props.id,
+      title: this.props.title,
+      description: this.props.description,
+      deadline: this.props.deadline,
+      img: this.props.img
+    }
+  }
   handleButtonClick() {
-    this.forceUpdate();
+    this.forceUpdate(); 
+    // console.log('you clicked the listener')
   }
   render() {
     return (
@@ -146,13 +158,13 @@ class Card extends React.Component {
         <div className="cardbox">
           <div className="cardDetails">
             <div className="headlineText">
-              <Link to={`/result/${this.props.id}`} onClick={this.handleButtonClick}> {this.props.title} </Link>
+              <Link to={`/result/${this.state.id}`} onClick={this.handleButtonClick}> {this.state.title} </Link>
             </div>
             <div className="headlineSub">Colombo, Sri Lanka</div>
-            <div className="headlineDes">{this.props.description}</div>
+            <div className="headlineDes">{this.state.description}</div>
             <div className="textRemain">
               {" "}
-              Deadline date: {this.props.deadline}
+              {/* Deadline date: {this.props.deadline} */}
             </div>
             <div className="buttonRow">
               <button className="downloadBtn">Download</button>
@@ -161,7 +173,7 @@ class Card extends React.Component {
           </div>
           <div className="cardimgwrapper">
             <div className="cardimg">
-              <img src={this.props.img} alt="some title" />
+              <img src={this.state.img} alt="some title" />
             </div>
           </div>
         </div>
