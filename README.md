@@ -1,5 +1,5 @@
 # GovJobs.lk front-end app
-Deployed here - http://suite-search-lk.surge.sh
+Deployed here - http://suite-search-lk.surge.sh and deployed here - https://youthful-cori-97579f.netlify.com/
 ## Parcel React boilerplate
 
 > This repo was originally cloned from the following parcel React boilerplate [here](https://github.com/Christianq010/v1-parcel-react-scss-boilerplate).
